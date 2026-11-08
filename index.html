@@ -1,0 +1,1155 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Достопримечательности Узбекистана</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&amp;family=Onest:wght@400;500;600;700&amp;family=Prata&amp;display=swap">
+<style>
+/* ===== Палитра и типографика: «глазурованная плитка» ===== */
+:root {
+  color-scheme: light;
+  --bg: #F5EFE2;
+  --surface: #EBE3D2;
+  --fg: #17202D;
+  --muted: #5B6572;
+  --line: #D6CAB5;
+  --lapis: #1E5D9E;
+  --lapis-soft: #DCE8F4;
+  --turquoise: #1B6E66;
+  --clay: #A94F26;
+  --gold: #8A6217;
+  --deep: #0F2438;
+  --deep-fg: #F3ECDE;
+  --deep-muted: #B9C7D6;
+  --deep-line: #2A4157;
+  --deep-accent: #8CC0EC;
+  --veil: rgba(245, 239, 226, 0.9);
+  --font-display: "Prata", "Georgia", "Times New Roman", serif;
+  --font-body: "Onest", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --gutter-left: max(clamp(20px, 4.5vw, 64px), env(safe-area-inset-left, 0px));
+  --gutter-right: max(clamp(20px, 4.5vw, 64px), env(safe-area-inset-right, 0px));
+  --topbar-h: 62px;
+  --nav-h: 64px;
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #0B1622;
+    --surface: #122232;
+    --fg: #EDE6D7;
+    --muted: #A5B3C0;
+    --line: #27394B;
+    --lapis: #82B6E8;
+    --lapis-soft: #1A3047;
+    --turquoise: #6FC8B9;
+    --clay: #E29B70;
+    --gold: #E0B65C;
+    --deep: #0C1B2B;
+    --deep-fg: #F1EADB;
+    --deep-muted: #B2C1D0;
+    --deep-line: #2B4258;
+    --deep-accent: #8CC0EC;
+    --veil: rgba(11, 22, 34, 0.9);
+  }
+}
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --bg: #0B1622;
+  --surface: #122232;
+  --fg: #EDE6D7;
+  --muted: #A5B3C0;
+  --line: #27394B;
+  --lapis: #82B6E8;
+  --lapis-soft: #1A3047;
+  --turquoise: #6FC8B9;
+  --clay: #E29B70;
+  --gold: #E0B65C;
+  --deep: #0C1B2B;
+  --deep-fg: #F1EADB;
+  --deep-muted: #B2C1D0;
+  --deep-line: #2B4258;
+  --deep-accent: #8CC0EC;
+  --veil: rgba(11, 22, 34, 0.9);
+}
+
+/* ===== База ===== */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
+.app { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+::selection { background: var(--lapis-soft); color: var(--fg); }
+:focus-visible { outline: 2px solid var(--lapis); outline-offset: 3px; }
+button { font: inherit; color: inherit; }
+a { color: inherit; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ===== Шапка и прогресс ===== */
+.topbar {
+  position: fixed; inset: 0 0 auto 0; z-index: 40;
+  background: var(--veil);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  padding-top: env(safe-area-inset-top, 0px);
+}
+.topbar-inner {
+  max-width: 1320px; margin: 0 auto;
+  height: var(--topbar-h);
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding-left: var(--gutter-left); padding-right: var(--gutter-right);
+}
+.mark {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-mono); font-size: 10px; font-weight: 400;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  white-space: nowrap;
+}
+.region-code { color: var(--gold); font-weight: 500; }
+.mark-sep { color: var(--line); }
+.top-link {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em;
+  color: var(--fg); text-decoration: none; padding-bottom: 2px;
+  border-bottom: 1px solid var(--line);
+  transition: color 0.2s var(--ease), border-color 0.2s var(--ease);
+  white-space: nowrap;
+}
+.top-link:hover { color: var(--clay); border-color: var(--clay); }
+.progress {
+  position: absolute; left: 0; bottom: -1px; height: 2px; width: 9.1%;
+  background: var(--lapis);
+  transition: width 0.35s var(--ease);
+}
+
+/* ===== Колода ===== */
+.deck { position: relative; height: 100%; }
+.slide {
+  position: absolute; inset: 0;
+  display: none;
+  overflow-y: auto; overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+.slide.is-active { display: block; }
+.slide-inner {
+  position: relative;
+  width: 100%; max-width: 1320px; min-height: 100%;
+  margin: 0 auto;
+  padding-top: calc(var(--topbar-h) + env(safe-area-inset-top, 0px) + clamp(22px, 3.6vh, 46px));
+  padding-right: var(--gutter-right);
+  padding-bottom: calc(var(--nav-h) + env(safe-area-inset-bottom, 0px) + clamp(22px, 3.6vh, 46px));
+  padding-left: var(--gutter-left);
+  display: flex; flex-direction: column; gap: clamp(20px, 3vh, 38px);
+  justify-content: center;
+  justify-content: safe center;
+}
+.slide--deep { background: var(--deep); color: var(--deep-fg); }
+.slide.is-active .slide-inner { animation: enter 0.45s var(--ease) both; }
+@keyframes enter {
+  from { opacity: 0.35; transform: translateY(14px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ===== Заголовки ===== */
+.eyebrow {
+  display: flex; align-items: center; gap: 12px;
+  margin: 0;
+  font-family: var(--font-mono); font-size: 11px; font-weight: 400;
+  letter-spacing: 0.18em; text-transform: uppercase; color: var(--lapis);
+}
+.eyebrow::before {
+  content: ""; width: 7px; height: 7px; background: var(--lapis);
+  transform: rotate(45deg); flex: 0 0 auto;
+}
+.display {
+  margin: 0;
+  font-family: var(--font-display); font-weight: 400;
+  letter-spacing: -0.018em; line-height: 1.03;
+  text-wrap: balance;
+}
+h2.display { font-size: clamp(2.2rem, 4.8vw, 4.2rem); }
+.lede {
+  margin: 0; max-width: 60ch;
+  font-size: clamp(1.02rem, 1.35vw, 1.22rem); line-height: 1.5; color: var(--muted);
+}
+.sub {
+  margin: 0; max-width: 72ch;
+  font-size: clamp(0.95rem, 1.15vw, 1.08rem); line-height: 1.5; color: var(--muted);
+}
+.slide--deep .eyebrow { color: var(--deep-accent); }
+.slide--deep .eyebrow::before { background: var(--deep-accent); }
+.slide--deep .sub, .slide--deep .lede { color: var(--deep-muted); }
+.slide-head { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+
+/* ===== Обложка ===== */
+.cover-grid {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(180px, 330px);
+  align-items: center; gap: clamp(28px, 4vw, 64px);
+}
+.cover-copy { display: flex; flex-direction: column; gap: clamp(16px, 2.4vh, 24px); min-width: 0; }
+.title-display { font-size: clamp(3.1rem, 8.4vw, 7.4rem); line-height: 0.98; letter-spacing: -0.02em; }
+.tile-panel {
+  margin: 0; width: min(28vw, 330px); aspect-ratio: 1;
+  border: 1px solid var(--deep-line); padding: 13px;
+  display: flex; flex-direction: column; gap: 10px;
+  color: var(--deep-accent); background: var(--deep);
+}
+.tile-panel svg { width: 100%; height: auto; flex: 1 1 auto; opacity: 0.8; }
+.tile-panel figcaption {
+  font-family: var(--font-mono); font-size: 8.5px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--deep-muted);
+}
+.cover-bottom { display: flex; flex-direction: column; gap: clamp(18px, 3vh, 28px); }
+
+.stats {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px; background: var(--line); border: 1px solid var(--line);
+}
+.stat { background: var(--bg); padding: clamp(13px, 1.8vw, 20px); min-width: 0; }
+.stat-num {
+  display: block;
+  font-family: var(--font-display); font-weight: 400; letter-spacing: -0.02em;
+  font-size: clamp(1.8rem, 2.7vw, 2.7rem); line-height: 1;
+}
+.stat-label { display: block; margin-top: 8px; font-size: 0.76rem; line-height: 1.35; color: var(--muted); }
+.slide--deep .stats { background: var(--deep-line); border-color: var(--deep-line); }
+.slide--deep .stat { background: var(--deep); }
+.slide--deep .stat-num { color: var(--deep-accent); }
+.slide--deep .stat-label { color: var(--deep-muted); }
+
+.route-strip {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px;
+  padding-top: 16px; border-top: 1px solid var(--line);
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--muted);
+}
+.route-city { display: inline-flex; align-items: center; gap: 12px; }
+.route-city + .route-city::before {
+  content: ""; width: 5px; height: 5px; background: var(--lapis);
+  transform: rotate(45deg); flex: 0 0 auto;
+}
+.slide--deep .route-strip { border-color: var(--deep-line); color: var(--deep-muted); }
+.slide--deep .route-city + .route-city::before { background: var(--deep-accent); }
+
+/* ===== Обзор ===== */
+.overview-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 64px);
+}
+.overview-col { min-width: 0; }
+.overview-col .eyebrow { font-size: 10px; margin-bottom: 10px; }
+.overview-col .list li { padding-top: 8px; padding-bottom: 8px; }
+.deck-note {
+  margin: 0; padding-top: 14px; border-top: 1px solid var(--line);
+  font-size: 0.88rem; color: var(--muted); max-width: 84ch;
+}
+.deck-note strong { color: var(--fg); font-weight: 600; }
+
+/* ===== Городские слайды ===== */
+.city-head { display: flex; flex-direction: column; gap: 14px; }
+.city-top {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 12px 32px; flex-wrap: wrap;
+}
+.city-meta { text-align: right; flex: 0 0 auto; }
+.city-km {
+  display: block;
+  font-family: var(--font-display); font-weight: 400; letter-spacing: -0.02em;
+  font-size: clamp(1.35rem, 2.2vw, 2.1rem); line-height: 1; color: var(--lapis);
+}
+.city-how {
+  display: block; margin-top: 5px;
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted);
+}
+.cols {
+  display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  gap: clamp(28px, 4vw, 64px); align-items: start;
+}
+.stack { display: flex; flex-direction: column; gap: clamp(16px, 2vh, 24px); min-width: 0; }
+.block {
+  border-top: 1px solid var(--line); padding-top: 12px;
+  display: flex; flex-direction: column; gap: 7px; min-width: 0;
+}
+.block-title {
+  margin: 0; font-family: var(--font-mono); font-size: 10px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+}
+.block p { margin: 0; font-size: 0.88rem; line-height: 1.44; color: var(--muted); }
+.block p strong { color: var(--fg); font-weight: 600; }
+.block-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 7px; }
+.block-list li {
+  position: relative; padding-left: 15px; font-size: 0.86rem; line-height: 1.42;
+  color: var(--muted);
+}
+.block-list li::before {
+  content: ""; position: absolute; left: 0; top: 0.6em;
+  width: 4px; height: 4px; background: var(--lapis); transform: rotate(45deg);
+}
+.block-list strong { color: var(--fg); font-weight: 600; }
+
+.list { list-style: none; margin: 0; padding: 0; }
+.list li {
+  position: relative; padding: 9px 0 9px 20px;
+  border-top: 1px solid var(--line);
+  font-size: 0.89rem; line-height: 1.42; color: var(--muted);
+}
+.list li:first-child { border-top: 0; padding-top: 0; }
+.list li::before {
+  content: ""; position: absolute; left: 0; top: 1.1em;
+  width: 5px; height: 5px; background: var(--lapis); transform: rotate(45deg);
+}
+.list li:first-child::before { top: 0.55em; }
+.list strong { color: var(--fg); font-weight: 600; }
+
+.chips { display: flex; flex-wrap: wrap; gap: 7px; }
+.chip {
+  border: 1px solid var(--line); padding: 5px 9px;
+  font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.04em;
+  color: var(--muted); white-space: nowrap;
+}
+.chip b { color: var(--lapis); font-weight: 500; }
+
+.note {
+  border: 1px solid var(--line); background: var(--surface);
+  padding: 13px 15px; font-size: 0.87rem; line-height: 1.45; color: var(--muted);
+}
+.note strong { color: var(--fg); font-weight: 600; }
+
+.quote {
+  margin: 0; border-left: 2px solid var(--turquoise); padding: 2px 0 2px 14px;
+}
+.quote p {
+  margin: 0; font-family: var(--font-display); font-size: 1rem; line-height: 1.42;
+  color: var(--fg);
+}
+.quote cite {
+  display: block; margin-top: 7px;
+  font-family: var(--font-mono); font-style: normal; font-size: 8.5px;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted);
+}
+
+/* ===== Природа ===== */
+.nature-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(28px, 4vw, 64px);
+}
+.nature-col { min-width: 0; }
+.nature-col h3 {
+  margin: 0 0 2px;
+  font-family: var(--font-display); font-weight: 400; font-size: clamp(1.25rem, 1.8vw, 1.55rem);
+  letter-spacing: -0.01em; line-height: 1.15;
+}
+.nature-col .nature-meta {
+  display: block; margin-bottom: 10px;
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--muted);
+}
+.nature-col .list li { font-size: 0.86rem; }
+
+/* ===== Планирование ===== */
+.route-panel {
+  background: var(--surface); border: 1px solid var(--line);
+  padding: clamp(18px, 2.5vw, 28px);
+  display: flex; flex-direction: column; gap: 18px;
+}
+.route-block { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.route-label {
+  margin: 0; font-family: var(--font-mono); font-size: 9px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+}
+.city-line {
+  display: flex; align-items: center; flex-wrap: wrap; gap: 8px 10px;
+}
+.city-stop {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 0.9rem; font-weight: 600; white-space: nowrap;
+}
+.city-stop::before {
+  content: ""; width: 6px; height: 6px; background: var(--lapis); transform: rotate(45deg);
+}
+.rail-gap { flex: 1 1 28px; min-width: 18px; border-top: 1px dashed var(--line); }
+.route-extra {
+  display: flex; flex-wrap: wrap; gap: 5px 16px;
+  font-family: var(--font-mono); font-size: 9.5px; color: var(--muted);
+}
+.route-extra b { color: var(--fg); font-weight: 500; }
+.tip-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 1px; background: var(--line); border: 1px solid var(--line);
+}
+.tip { background: var(--bg); padding: 15px 18px; min-width: 0; }
+.tip h3 {
+  margin: 0 0 5px; font-family: var(--font-display); font-weight: 400;
+  font-size: 1rem; letter-spacing: -0.01em; line-height: 1.2;
+}
+.tip p { margin: 0; font-size: 0.82rem; line-height: 1.42; color: var(--muted); }
+
+/* ===== Финал ===== */
+.link-card {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 18px 28px; flex-wrap: wrap;
+  border: 1px solid var(--line); background: var(--surface);
+  padding: clamp(18px, 2.4vw, 26px);
+  text-decoration: none; color: var(--fg);
+  transition: border-color 0.2s var(--ease), background 0.2s var(--ease);
+}
+.link-card:hover { border-color: var(--clay); background: var(--surface); }
+.link-block { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.link-label {
+  font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.16em;
+  text-transform: uppercase; color: var(--muted);
+}
+.link-url {
+  font-family: var(--font-mono); font-size: 0.78rem; color: var(--fg);
+  overflow-wrap: anywhere;
+}
+.link-cta {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--clay); white-space: nowrap;
+}
+.final-meta {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(16px, 2.4vw, 32px);
+}
+.final-meta .block { padding-top: 14px; }
+.final-meta .block p { font-size: 0.84rem; }
+
+/* ===== Нижняя навигация ===== */
+.nav {
+  position: fixed; inset: auto 0 0 0; z-index: 40;
+  background: var(--veil);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-top: 1px solid var(--line);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+.nav-inner {
+  max-width: 1320px; margin: 0 auto;
+  height: var(--nav-h);
+  display: grid; grid-template-columns: auto 1fr auto;
+  align-items: center; gap: 14px;
+  padding-left: var(--gutter-left); padding-right: var(--gutter-right);
+}
+.counter {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em;
+  color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.dots { display: flex; align-items: center; justify-content: center; gap: 0; }
+.dot {
+  width: 18px; height: 26px; padding: 0; border: 0; background: none;
+  cursor: pointer; position: relative;
+}
+.dot::before {
+  content: ""; position: absolute; left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: 5px; height: 5px; background: var(--line);
+  transition: width 0.2s var(--ease), background 0.2s var(--ease), border-radius 0.2s var(--ease);
+}
+.dot:hover::before { background: var(--muted); }
+.dot[aria-current="true"]::before { width: 17px; border-radius: 3px; background: var(--lapis); }
+.arrows { display: flex; align-items: center; gap: 7px; }
+.arrow {
+  width: 40px; height: 40px; border-radius: 50%;
+  border: 1px solid var(--line); background: transparent;
+  display: grid; place-items: center; cursor: pointer;
+  transition: border-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+.arrow:hover:not(:disabled) { border-color: var(--lapis); color: var(--lapis); }
+.arrow:disabled { opacity: 0.35; cursor: default; }
+
+/* ===== Адаптив ===== */
+@media (max-width: 1080px) {
+  .cols { grid-template-columns: 1fr; gap: 28px; }
+  .overview-grid, .nature-grid { grid-template-columns: 1fr; gap: 26px; }
+  .final-meta { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 820px) {
+  :root { --topbar-h: 56px; --nav-h: 60px; }
+  .cover-grid { grid-template-columns: 1fr; }
+  .tile-panel { display: none; }
+  .stats { grid-template-columns: 1fr 1fr; }
+  .city-head .display { font-size: clamp(2rem, 7.5vw, 3.2rem); }
+  .city-meta { text-align: left; }
+  .dots { display: none; }
+  .nav-inner { grid-template-columns: 1fr auto; }
+  .tip-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .final-meta { grid-template-columns: 1fr; }
+  .mark-hide, .mark-sep { display: none; }
+  .title-display { font-size: clamp(2.7rem, 13vw, 4rem); }
+  .stat-label { font-size: 0.72rem; }
+  .route-strip { font-size: 9px; letter-spacing: 0.1em; gap: 6px 14px; }
+  .quote p { font-size: 0.96rem; }
+  .tip-grid { grid-template-columns: 1fr; }
+  .rail-gap { display: none; }
+  .city-line { gap: 8px 18px; }
+}
+@media (max-width: 420px) {
+  .arrow { width: 38px; height: 38px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .slide.is-active .slide-inner { animation: none; }
+}
+</style>
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div class="topbar-inner">
+      <span class="mark"><span class="region-code">998</span><span>Узбекистан</span><span class="mark-sep" aria-hidden="true">/</span><span class="mark-hide">путеводитель</span></span>
+      <a class="top-link" href="https://experience.tripster.ru/journal/articles/dostoprimechatelnosti-uzbekistana-kuda-poehat-i-chem-zanyatsy/" target="_blank" rel="noopener noreferrer">tripster.ru <span aria-hidden="true">↗</span></a>
+    </div>
+    <span class="progress" id="progress" aria-hidden="true"></span>
+  </header>
+
+  <main class="deck" id="deck">
+    <!-- 1 -->
+    <section class="slide slide--deep slide--title is-active" id="slide-1" data-title="Титул" aria-roledescription="слайд" aria-label="Слайд 1 из 11">
+      <div class="slide-inner">
+        <div class="cover-grid">
+          <div class="cover-copy">
+            <p class="eyebrow">tripster · журнал о путешествиях</p>
+            <h1 class="display title-display">Узбекистан</h1>
+            <p class="lede">Города, пустыни и голубые купола: Ташкент, Самарканд, Бухара, Хива, Нукус — и природа за их пределами.</p>
+          </div>
+          <figure class="tile-panel" aria-hidden="true">
+            <svg viewBox="0 0 320 320" focusable="false">
+              <defs>
+                <pattern id="girih" width="80" height="80" patternUnits="userSpaceOnUse">
+                  <g fill="none" stroke="currentColor" stroke-width="1">
+                    <rect x="28" y="28" width="24" height="24"/>
+                    <rect x="28" y="28" width="24" height="24" transform="rotate(45 40 40)"/>
+                    <circle cx="40" cy="40" r="3.5"/>
+                    <path d="M40 0v10M40 70v10M0 40h10M70 40h10"/>
+                  </g>
+                </pattern>
+              </defs>
+              <rect width="320" height="320" fill="url(#girih)"/>
+            </svg>
+            <figcaption>гирих · восьмиконечная звезда</figcaption>
+          </figure>
+        </div>
+        <div class="cover-bottom">
+          <div class="stats">
+            <div class="stat"><span class="stat-num">5</span><span class="stat-label">городов в путеводителе</span></div>
+            <div class="stat"><span class="stat-num">574</span><span class="stat-label">тыс. гектаров Угам-Чаткальского парка</span></div>
+            <div class="stat"><span class="stat-num">375</span><span class="stat-label">метров — Ташкентская телебашня</span></div>
+            <div class="stat"><span class="stat-num">2</span><span class="stat-label">вагона русского авангарда в Нукусе</span></div>
+          </div>
+          <div class="route-strip" aria-label="Города путеводителя">
+            <span class="route-city">Ташкент</span>
+            <span class="route-city">Самарканд</span>
+            <span class="route-city">Бухара</span>
+            <span class="route-city">Хива</span>
+            <span class="route-city">Нукус</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2 -->
+    <section class="slide" id="slide-2" data-title="Обзор" aria-roledescription="слайд" aria-label="Слайд 2 из 11">
+      <div class="slide-inner">
+        <div class="slide-head">
+          <p class="eyebrow">02 · Обзор</p>
+          <h2 class="display">Пять городов и четыре пейзажа</h2>
+          <p class="sub">В Узбекистане восточная сказка начинается в городах, а за их пределами продолжаются пески, горы и озёра. Вот что стоит увидеть в первую очередь.</p>
+        </div>
+        <div class="overview-grid">
+          <div class="overview-col">
+            <p class="eyebrow">Города</p>
+            <ul class="list">
+              <li><strong>Ташкент</strong> — первое в Центральной Азии метро, Хазрати-Имам и телебашня.</li>
+              <li><strong>Самарканд</strong> — Регистан, Шахи-Зинда и Биби-Ханум.</li>
+              <li><strong>Бухара</strong> — крепость Арк, Зиндан и крытые базары.</li>
+              <li><strong>Хива</strong> — Ичан-Кала, минареты и Джума-мечеть.</li>
+              <li><strong>Нукус</strong> — музей Савицкого и Аральское море.</li>
+            </ul>
+          </div>
+          <div class="overview-col">
+            <p class="eyebrow">Природа</p>
+            <ul class="list">
+              <li><strong>Угам-Чаткал</strong> — горы Западного Тянь-Шаня.</li>
+              <li><strong>Кызылкум</strong> — пустыня с древними крепостями.</li>
+              <li><strong>Айдаркуль</strong> — озеро, астротуризм и рыбалка.</li>
+              <li><strong>Чарвак</strong> — бирюзовое водохранилище и пляжи.</li>
+            </ul>
+          </div>
+        </div>
+        <p class="deck-note">Пять городов и четыре природные локации — структура статьи. Дальше — главное о каждом месте и практичные детали.</p>
+      </div>
+    </section>
+
+    <!-- 3 -->
+    <section class="slide" id="slide-3" data-title="Ташкент" aria-roledescription="слайд" aria-label="Слайд 3 из 11">
+      <div class="slide-inner">
+        <div class="city-head">
+          <div class="city-top">
+            <p class="eyebrow">03 · Ташкент</p>
+            <div class="city-meta">
+              <span class="city-km">2200+</span>
+              <span class="city-how">лет Ташкенту</span>
+            </div>
+          </div>
+          <h2 class="display">Космос под землёй</h2>
+        </div>
+        <p class="sub">Столица с первым в Центральной Азии метро, средневековым Хазрати-Имамом и советским модернизмом с восточными мотивами.</p>
+        <div class="cols">
+          <div>
+            <ul class="list">
+              <li><strong>Метро «Космонавтов»</strong> — лазурная керамика, портреты учёных и средневековый астроном Мирзо Улугбек.</li>
+              <li><strong>Хазрати-Имам</strong> — ансамбль XVI–XIX веков; на осмотр стоит заложить полдня.</li>
+              <li><strong>Медресе Муйи-Муборак</strong> — здесь хранится «Османский Коран» VII века.</li>
+              <li><strong>Мавзолей Каффаля Шаши</strong> — X век, перестроен в XVI; купол и майолика.</li>
+              <li><strong>Медресе Барак-хана</strong> — XVI век; сегодня внутри ремесленные мастерские.</li>
+              <li><strong>Намазгох и Тилла-Шейх</strong> — XIX век; легенда о волосе пророка и минареты-маяки.</li>
+            </ul>
+          </div>
+          <div class="stack">
+            <blockquote class="quote">
+              <p>«Хазрати-Имам — единственное место в Ташкенте, где ощущается атмосфера средневекового восточного города.»</p>
+              <cite>Александр · гид в Ташкенте</cite>
+            </blockquote>
+            <div class="block">
+              <h3 class="block-title">Телебашня</h3>
+              <p><strong>375 метров, 1985 год.</strong> Смотровая площадка — на 94 метрах, ресторан — на 110; платформа делает полный оборот за час. Башня выдерживает девятибалльное землетрясение.</p>
+            </div>
+            <div class="block">
+              <h3 class="block-title">Деталь</h3>
+              <p>В фойе выставлены макеты знаменитых телевышек мира и мозаичное панно из полудрагоценных камней в технике флорентийской мозаики.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4 -->
+    <section class="slide" id="slide-4" data-title="Самарканд" aria-roledescription="слайд" aria-label="Слайд 4 из 11">
+      <div class="slide-inner">
+        <div class="city-head">
+          <div class="city-top">
+            <p class="eyebrow">04 · Самарканд</p>
+            <div class="city-meta">
+              <span class="city-km">2700+</span>
+              <span class="city-how">лет Самарканду</span>
+            </div>
+          </div>
+          <h2 class="display">Город под звёздами</h2>
+        </div>
+        <p class="sub">Один из древнейших городов планеты, объект ЮНЕСКО и столица эпохи Тимуридов, где архитектура сверялась со звёздами.</p>
+        <div class="cols">
+          <div>
+            <ul class="list">
+              <li><strong>Площадь Регистан</strong> — три медресе: Улугбека со звёздами в мозаике, Шердор со львами и Тилля-Кари с золотой росписью.</li>
+              <li><strong>Шахи-Зинда</strong> — улица мавзолеев XI–XV веков и глазурованная керамика с кобальтом и медью.</li>
+              <li><strong>Биби-Ханум</strong> — XIV век; 33-метровый портал и двойной купол высотой 40 метров.</li>
+              <li><strong>Лестница Шахи-Зинды</strong> — паломники считают ступени: совпало число — душа чиста.</li>
+              <li><strong>«Вечный город»</strong> — ремесленные мастерские, мастер-классы, самса и плов.</li>
+            </ul>
+          </div>
+          <div class="stack">
+            <blockquote class="quote">
+              <p>«Город пронизан духом астрономии: здесь даже планировка некоторых зданий была математически выверена по звёздам.»</p>
+              <cite>Муксин · гид в Самарканде</cite>
+            </blockquote>
+            <div class="block">
+              <h3 class="block-title">Деталь</h3>
+              <p>Животное с мозаики Шердора, несущее солнце на спине, стало одним из символов Узбекистана. В 1997 году самаркандского «котика» поместили на купюру 200 сум, вышедшую из оборота в 2020-м.</p>
+            </div>
+            <div class="block">
+              <h3 class="block-title">Совет</h3>
+              <p>На Регистане ищите звёзды в мозаике медресе Улугбека: изучение небесных тел входило в обязательную учебную программу.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5 -->
+    <section class="slide" id="slide-5" data-title="Бухара" aria-roledescription="слайд" aria-label="Слайд 5 из 11">
+      <div class="slide-inner">
+        <div class="city-head">
+          <div class="city-top">
+            <p class="eyebrow">05 · Бухара</p>
+            <div class="city-meta">
+              <span class="city-km">2,5 тыс.</span>
+              <span class="city-how">лет истории</span>
+            </div>
+          </div>
+          <h2 class="display">Музей под открытым небом</h2>
+        </div>
+        <p class="sub">Исторический центр в списке ЮНЕСКО, а памятники расположены так компактно, что на главное хватит одного-двух дней.</p>
+        <div class="cols">
+          <div>
+            <ul class="list">
+              <li><strong>Крепость Арк</strong> — цитадель с IV века до н. э.; стены XVI века, тронный зал и краеведческий музей.</li>
+              <li><strong>Зиндан</strong> — тюрьма XVIII века; подземная темница на глубине 6,5 метра, теперь музей судебной системы.</li>
+              <li><strong>Токи</strong> — крытые базары с куполами, спроектированными для естественной вентиляции.</li>
+              <li><strong>Легенда Арка</strong> — царевич Сиявуш получил землю, равную по площади бычьей шкуре; он разрезал её на ремни и очертил большой участок.</li>
+            </ul>
+          </div>
+          <div class="stack">
+            <blockquote class="quote">
+              <p>«Бухарские крытые базары-токи были спроектированы так, чтобы внутри создавалась естественная вентиляция. Настоящий кондиционер по-бухарски.»</p>
+              <cite>Муксин · гид в Самарканде</cite>
+            </blockquote>
+            <div class="block">
+              <h3 class="block-title">Совет</h3>
+              <p>На осмотр главных достопримечательностей Бухары хватит <strong>одного-двух дней</strong>: исторический центр компактный.</p>
+            </div>
+            <div class="block">
+              <h3 class="block-title">Деталь</h3>
+              <p>Арк неоднократно разрушали и отстраивали заново. Сейчас путешественники видят отреставрированные стены XVI века, а здания внутри цитадели относятся к XVII–XX векам.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6 -->
+    <section class="slide" id="slide-6" data-title="Хива" aria-roledescription="слайд" aria-label="Слайд 6 из 11">
+      <div class="slide-inner">
+        <div class="city-head">
+          <div class="city-top">
+            <p class="eyebrow">06 · Хива</p>
+            <div class="city-meta">
+              <span class="city-km">400</span>
+              <span class="city-how">домов в Ичан-Кале</span>
+            </div>
+          </div>
+          <h2 class="display">Город внутри стены</h2>
+        </div>
+        <p class="sub">Бывшая столица Хивинского ханства: внутри крепостной стены — около 400 традиционных домов и 60 общественных и религиозных построек.</p>
+        <div class="cols">
+          <div>
+            <ul class="list">
+              <li><strong>Ичан-Кала</strong> — наиболее сохранившийся средневековый городской ансамбль Центральной Азии.</li>
+              <li><strong>Кальта-Минор</strong> — начат в середине XIX века; планировали 80 метров, остановились на 26. Для красоты покрыли майоликой.</li>
+              <li><strong>Ислам-Ходжа</strong> — 56,6 метра, самый крупный минарет Узбекистана; смотровая площадка на 45 метрах.</li>
+              <li><strong>Джума-мечеть</strong> — без куполов и вязи; около 200 резных деревянных колонн X–XVIII веков.</li>
+            </ul>
+          </div>
+          <div class="stack">
+            <blockquote class="quote">
+              <p>«Внутренний город Хивы — Ичан-Кала — это наиболее хорошо сохранившийся средневековый городской ансамбль на территории всей Центральной Азии.»</p>
+              <cite>Александр · гид в Ташкенте</cite>
+            </blockquote>
+            <div class="block">
+              <h3 class="block-title">Слово</h3>
+              <p>Хива подарила миру понятие <strong>«алгоритм»</strong>: здесь родился математик Аль-Хорезми. Его имя легло в основу термина.</p>
+            </div>
+            <div class="block">
+              <h3 class="block-title">Совет</h3>
+              <p>Поднимитесь на смотровую площадку Ислам-Ходжи на 45 метров: оттуда открывается вид на всю Хиву.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 -->
+    <section class="slide" id="slide-7" data-title="Нукус" aria-roledescription="слайд" aria-label="Слайд 7 из 11">
+      <div class="slide-inner">
+        <div class="city-head">
+          <div class="city-top">
+            <p class="eyebrow">07 · Нукус</p>
+            <div class="city-meta">
+              <span class="city-km">1966</span>
+              <span class="city-how">год основания музея</span>
+            </div>
+          </div>
+          <h2 class="display">Авангард среди пустыни</h2>
+        </div>
+        <p class="sub">Столица Каракалпакстана не входит в число туристических городов, но ради коллекции русского авангарда сюда едут со всего мира.</p>
+        <div class="cols">
+          <div>
+            <ul class="list">
+              <li><strong>Музей имени Савицкого</strong> — открыт в 1966 году; коллекция русского авангарда, запрещённого в СССР.</li>
+              <li><strong>Два вагона работ</strong> — Савицкий привёз их из Москвы; в коллекции — Фальк, Шемякин, Волков.</li>
+              <li><strong>Три части экспозиции</strong> — живопись, археология Хорезма и народно-прикладное искусство.</li>
+              <li><strong>Дешевле в будни</strong> — по выходным и праздникам стоимость билетов увеличивается вдвое.</li>
+            </ul>
+          </div>
+          <div class="stack">
+            <blockquote class="quote">
+              <p>«Нукус — отправная точка для поездок к обмелевшему Аральскому морю: отсюда стартуют экспедиции на кладбище кораблей в Муйнаке.»</p>
+              <cite>Муксин · гид в Самарканде</cite>
+            </blockquote>
+            <div class="block">
+              <h3 class="block-title">Вокруг</h3>
+              <p>Город окружают три пустыни: <strong>Каракум, Кызылкум и Аралкум</strong>, возникшая на месте высохшего моря.</p>
+            </div>
+            <div class="block">
+              <h3 class="block-title">Деталь</h3>
+              <p>Музей начинался с идеи советского реставратора и художника И. В. Савицкого сохранить вымирающее народное искусство жителей Каракалпакстана.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8 -->
+    <section class="slide" id="slide-8" data-title="Горы и пустыня" aria-roledescription="слайд" aria-label="Слайд 8 из 11">
+      <div class="slide-inner">
+        <div class="city-head">
+          <div class="city-top">
+            <p class="eyebrow">08 · Природа</p>
+            <div class="city-meta">
+              <span class="city-km">574 тыс. га</span>
+              <span class="city-how">Угам-Чаткальский парк</span>
+            </div>
+          </div>
+          <h2 class="display">Горы и красные пески</h2>
+        </div>
+        <p class="sub">Горы Западного Тянь-Шаня и пустыня, где миллионы лет назад было дно древнего океана.</p>
+        <div class="nature-grid">
+          <div class="nature-col">
+            <h3>Угам-Чаткальский парк</h3>
+            <span class="nature-meta">Ташкентская область · ЮНЕСКО</span>
+            <ul class="list">
+              <li><strong>574 тысячи гектаров</strong> в горах Западного Тянь-Шаня.</li>
+              <li>Хвойные и лиственные леса, ущелья и бурные реки с ледяной водой.</li>
+              <li>Здесь живут <strong>снежные барсы, сурки</strong> и особый тянь-шаньский бурый медведь.</li>
+              <li>Пик <strong>Аделунга</strong> — 4000 метров; озеро <strong>Ихначкуль</strong> с прозрачной зеленоватой водой.</li>
+            </ul>
+          </div>
+          <div class="nature-col">
+            <h3>Пустыня Кызылкум</h3>
+            <span class="nature-meta">«Красные пески» · древний океан Тетис</span>
+            <ul class="list">
+              <li>Одна из крупнейших пустынь мира; здесь до сих пор находят <strong>морские ракушки и зубы акул</strong>.</li>
+              <li><strong>Аяз-Кала</strong> — крепость, возведённая ещё до нашей эры; стены достигали 10 метров.</li>
+              <li><strong>Топрак-Кала</strong> — «Земляной город», столица Хорезма: не менее 200 зданий в 10 кварталах.</li>
+              <li><strong>Кызыл-Кала</strong> — античная крепость у посёлка Шарк Юлдузи; можно подняться на верхний ярус.</li>
+              <li>Локации находятся далеко друг от друга — удобнее всего с экскурсией.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9 -->
+    <section class="slide" id="slide-9" data-title="Озёра" aria-roledescription="слайд" aria-label="Слайд 9 из 11">
+      <div class="slide-inner">
+        <div class="city-head">
+          <div class="city-top">
+            <p class="eyebrow">09 · Природа</p>
+            <div class="city-meta">
+              <span class="city-km">круглый год</span>
+              <span class="city-how">рыбалка на Айдаркуле</span>
+            </div>
+          </div>
+          <h2 class="display">Озёра в пустыне и горах</h2>
+        </div>
+        <p class="sub">Айдаркуль — тихий оазис с одним из самых чистых ночных небес региона, Чарвак — бирюзовая вода и пляжи среди гор.</p>
+        <div class="nature-grid">
+          <div class="nature-col">
+            <h3>Озеро Айдаркуль</h3>
+            <span class="nature-meta">Кызылкум · водохранилище Шардаринской ГЭС</span>
+            <ul class="list">
+              <li>Искусственно созданное водохранилище, оазис посреди пустыни.</li>
+              <li>Одно из самых чистых ночных небес Центральной Азии — отличное место для <strong>астротуризма</strong>.</li>
+              <li>Здесь живут краснокнижные <strong>кудрявые пеликаны, чёрные грифы и орланы-белохвосты</strong>.</li>
+              <li>Рыбалка круглый год: судак, сом и сазан. Водоём не замерзает зимой.</li>
+            </ul>
+          </div>
+          <div class="nature-col">
+            <h3>Чарвакское водохранилище</h3>
+            <span class="nature-meta">слияние Чирчика, Пскема, Коксу, Чаткала и Пальтау</span>
+            <ul class="list">
+              <li>Образовано в 1960-е плотиной Чарвакской гидроэлектростанции.</li>
+              <li>Цвет воды меняется от глубокого синего до бирюзового — в зависимости от погоды и сезона.</li>
+              <li>Протяжённые пляжи, большая часть — неблагоустроенные. Платный пляж <strong>«Семейный»</strong> в посёлке Юсуфхона.</li>
+              <li>По периметру озера — базы отдыха; на дне остались затопленные древние поселения и курганы.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10 -->
+    <section class="slide" id="slide-10" data-title="Планирование" aria-roledescription="слайд" aria-label="Слайд 10 из 11">
+      <div class="slide-inner">
+        <div class="slide-head">
+          <p class="eyebrow">10 · Планирование</p>
+          <h2 class="display">Что учесть в поездке</h2>
+          <p class="sub">Пять городов и четыре природные локации складываются в большое путешествие. Несколько практичных деталей из статьи.</p>
+        </div>
+        <div class="route-panel">
+          <div class="route-block">
+            <p class="route-label">Пять городов статьи</p>
+            <div class="city-line">
+              <span class="city-stop">Ташкент</span>
+              <span class="rail-gap" aria-hidden="true"></span>
+              <span class="city-stop">Самарканд</span>
+              <span class="rail-gap" aria-hidden="true"></span>
+              <span class="city-stop">Бухара</span>
+              <span class="rail-gap" aria-hidden="true"></span>
+              <span class="city-stop">Хива</span>
+              <span class="rail-gap" aria-hidden="true"></span>
+              <span class="city-stop">Нукус</span>
+            </div>
+          </div>
+          <div class="route-extra">
+            <span><b>Угам-Чаткал и Чарвак</b> — Ташкентская область</span>
+            <span><b>Айдаркуль</b> — озеро в Кызылкуме</span>
+            <span><b>Аральское море</b> — экспедиции из Нукуса</span>
+          </div>
+        </div>
+        <div class="tip-grid">
+          <div class="tip">
+            <h3>Бухара: 1–2 дня</h3>
+            <p>Памятники исторического центра расположены компактно — на главное хватит одного-двух дней.</p>
+          </div>
+          <div class="tip">
+            <h3>Кызылкум: с экскурсией</h3>
+            <p>Крепости находятся на значительном расстоянии друг от друга, поэтому удобнее ехать с гидом.</p>
+          </div>
+          <div class="tip">
+            <h3>Нукус: будни дешевле</h3>
+            <p>В музее Савицкого билеты по выходным и праздникам стоят вдвое дороже, чем в будние дни.</p>
+          </div>
+          <div class="tip">
+            <h3>Айдаркуль: круглый год</h3>
+            <p>Озеро не замерзает зимой, а рыбалка на судака, сома и сазана доступна в любой сезон.</p>
+          </div>
+        </div>
+        <p class="deck-note">Гиды и экскурсии по Узбекистану — на Tripster. Статья написана вместе с гидами Муксином и Александром.</p>
+      </div>
+    </section>
+
+    <!-- 11 -->
+    <section class="slide" id="slide-11" data-title="Источник" aria-roledescription="слайд" aria-label="Слайд 11 из 11">
+      <div class="slide-inner">
+        <div class="slide-head">
+          <p class="eyebrow">11 · Источник</p>
+          <h2 class="display">Журнал Tripster</h2>
+          <p class="sub">Это визуальный конспект статьи «Достопримечательности Узбекистана: куда поехать и чем заняться». Факты, детали и советы гидов — по её тексту.</p>
+        </div>
+        <a class="link-card" href="https://experience.tripster.ru/journal/articles/dostoprimechatelnosti-uzbekistana-kuda-poehat-i-chem-zanyatsy/" target="_blank" rel="noopener noreferrer">
+          <span class="link-block">
+            <span class="link-label">experience.tripster.ru · журнал</span>
+            <span class="link-url">experience.tripster.ru/journal/articles/dostoprimechatelnosti-uzbekistana-kuda-poehat-i-chem-zanyatsy/</span>
+          </span>
+          <span class="link-cta">Открыть статью ↗</span>
+        </a>
+        <div class="final-meta">
+          <div class="block">
+            <h3 class="block-title">Автор</h3>
+            <p>Мария Фёдорова.</p>
+          </div>
+          <div class="block">
+            <h3 class="block-title">Обновлено</h3>
+            <p>7 ноября 2026 года.</p>
+          </div>
+          <div class="block">
+            <h3 class="block-title">Вместе с гидами</h3>
+            <p>Муксин, гид в Самарканде, и Александр, представитель команды гидов в Ташкенте.</p>
+          </div>
+        </div>
+        <div class="route-strip" aria-label="Города путеводителя">
+          <span class="route-city">Ташкент</span>
+          <span class="route-city">Самарканд</span>
+          <span class="route-city">Бухара</span>
+          <span class="route-city">Хива</span>
+          <span class="route-city">Нукус</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="nav">
+    <div class="nav-inner">
+      <span class="counter" id="counter" aria-hidden="true">01 / 11</span>
+      <div class="dots" id="dots" role="navigation" aria-label="Слайды"></div>
+      <div class="arrows">
+        <button class="arrow" id="prevBtn" type="button" aria-label="Предыдущий слайд" disabled>
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>
+        </button>
+        <button class="arrow" id="nextBtn" type="button" aria-label="Следующий слайд">
+          <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <div class="sr-only" id="live" aria-live="polite"></div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var slides = Array.prototype.slice.call(document.querySelectorAll(".slide"));
+  var dotsWrap = document.getElementById("dots");
+  var counter = document.getElementById("counter");
+  var progress = document.getElementById("progress");
+  var prevBtn = document.getElementById("prevBtn");
+  var nextBtn = document.getElementById("nextBtn");
+  var live = document.getElementById("live");
+  var deck = document.getElementById("deck");
+  var dots = [];
+  var index = 0;
+
+  function pad(n) {
+    return String(n).padStart(2, "0");
+  }
+
+  slides.forEach(function (slide, i) {
+    var dot = document.createElement("button");
+    dot.type = "button";
+    dot.className = "dot";
+    dot.setAttribute("aria-label", "Слайд " + (i + 1) + ": " + (slide.dataset.title || ""));
+    dot.addEventListener("click", function () { goTo(i); });
+    dotsWrap.appendChild(dot);
+    dots.push(dot);
+  });
+
+  function goTo(n, options) {
+    options = options || {};
+    var target = Math.max(0, Math.min(slides.length - 1, Number(n) || 0));
+    index = target;
+
+    slides.forEach(function (slide, i) {
+      var active = i === index;
+      slide.classList.toggle("is-active", active);
+      slide.setAttribute("aria-hidden", active ? "false" : "true");
+      if (active) {
+        slide.removeAttribute("inert");
+      } else {
+        slide.setAttribute("inert", "");
+      }
+    });
+
+    dots.forEach(function (dot, i) {
+      if (i === index) {
+        dot.setAttribute("aria-current", "true");
+      } else {
+        dot.removeAttribute("aria-current");
+      }
+    });
+
+    counter.textContent = pad(index + 1) + " / " + pad(slides.length);
+    prevBtn.disabled = index === 0;
+    nextBtn.disabled = index === slides.length - 1;
+    progress.style.width = ((index + 1) / slides.length * 100) + "%";
+    live.textContent = "Слайд " + (index + 1) + " из " + slides.length + ": " + (slides[index].dataset.title || "");
+
+    if (!options.keepScroll) {
+      slides[index].scrollTop = 0;
+    }
+
+    if (!options.noHash) {
+      try {
+        history.replaceState(null, "", "#slide-" + (index + 1));
+      } catch (err) {
+        /* file:// или ограниченный контекст — хэш просто не обновится */
+      }
+    }
+  }
+
+  function fromHash() {
+    var match = window.location.hash.match(/^#slide-(\d+)$/);
+    if (match) {
+      var n = parseInt(match[1], 10) - 1;
+      if (n >= 0 && n < slides.length) {
+        return n;
+      }
+    }
+    return 0;
+  }
+
+  prevBtn.addEventListener("click", function () { goTo(index - 1); });
+  nextBtn.addEventListener("click", function () { goTo(index + 1); });
+
+  document.addEventListener("keydown", function (event) {
+    if (event.altKey || event.ctrlKey || event.metaKey) return;
+    var target = event.target;
+    var tag = target && target.tagName ? target.tagName.toLowerCase() : "";
+    var isControl = tag === "a" || tag === "button" || tag === "input" || tag === "textarea" || tag === "select";
+    if (isControl && (event.key === " " || event.key === "Enter")) return;
+
+    switch (event.key) {
+      case "ArrowRight":
+      case "PageDown":
+      case " ":
+      case "Spacebar":
+        event.preventDefault();
+        goTo(index + 1);
+        break;
+      case "ArrowLeft":
+      case "PageUp":
+        event.preventDefault();
+        goTo(index - 1);
+        break;
+      case "Home":
+        event.preventDefault();
+        goTo(0);
+        break;
+      case "End":
+        event.preventDefault();
+        goTo(slides.length - 1);
+        break;
+    }
+  });
+
+  var touchX = 0;
+  var touchY = 0;
+  var tracking = false;
+
+  deck.addEventListener("touchstart", function (event) {
+    if (event.touches.length !== 1) return;
+    touchX = event.touches[0].clientX;
+    touchY = event.touches[0].clientY;
+    tracking = true;
+  }, { passive: true });
+
+  deck.addEventListener("touchend", function (event) {
+    if (!tracking) return;
+    tracking = false;
+    var touch = event.changedTouches[0];
+    if (!touch) return;
+    var dx = touch.clientX - touchX;
+    var dy = touch.clientY - touchY;
+    if (Math.abs(dx) > 55 && Math.abs(dx) > Math.abs(dy) * 1.4) {
+      if (dx < 0) {
+        goTo(index + 1);
+      } else {
+        goTo(index - 1);
+      }
+    }
+  }, { passive: true });
+
+  window.addEventListener("hashchange", function () {
+    var next = fromHash();
+    if (next !== index) {
+      goTo(next, { noHash: true });
+    }
+  });
+
+  goTo(fromHash());
+})();
+</script>
+</body>
+</html>
